@@ -29,6 +29,9 @@ dependencies:
   astro:
     specifier: ^4.2.8
     version: 4.2.8(typescript@5.3.3)
+  astro-htmx:
+    specifier: ^1.0.5
+    version: 1.0.5(astro@4.2.8)(htmx.org@1.9.10)
   drizzle-orm:
     specifier: ^0.29.3
     version: 0.29.3(@libsql/client@0.4.3)
@@ -1735,6 +1738,16 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /astro-htmx@1.0.5(astro@4.2.8)(htmx.org@1.9.10):
+    resolution: {integrity: sha512-lTwGy5sMyvp6+O6UiSQEXrEWimRpPi16mMBbQTWUshWrGklCpYbtho6eaZVonFcB9ue7Y7FjTTPiYfp0hUUEuQ==}
+    peerDependencies:
+      astro: '>= 3.0.0'
+      htmx.org: '>= 1.9.0'
+    dependencies:
+      astro: 4.2.8(typescript@5.3.3)
+      htmx.org: 1.9.10
+    dev: false
 
   /astro@4.2.8(typescript@5.3.3):
     resolution: {integrity: sha512-h78IAdSEPMo1bvR40HECQYpnMPfDnk9WxRNJ1+Hw5szk4k5IMUw3nG153nErJABRnaxb6WLv7dtS4tukzJz0mw==}

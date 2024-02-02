@@ -24,6 +24,7 @@
 		"@types/alpinejs": "^3.13.6",
 		"alpinejs": "^3.13.5",
 		"astro": "^4.2.8",
+		"astro-htmx": "^1.0.5",
 		"drizzle-orm": "^0.29.3",
 		"htmx.org": "^1.9.10",
 		"nanoid": "^5.0.5",
