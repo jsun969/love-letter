@@ -8,12 +8,11 @@ export const validateFormData = <TEntries extends v.ObjectEntries>(
 	const praseRes = v.safeParse(schema, formDataObj);
 	if (!praseRes.success) {
 		return {
-			ok: false as const,
-			response: new Response(JSON.stringify(praseRes.issues), {
+			error: new Response(JSON.stringify(praseRes.issues), {
 				status: 400,
 				statusText: 'Payload validation failed',
 			}),
 		};
 	}
-	return { ok: true as const, data: praseRes.output };
+	return { data: praseRes.output };
 };

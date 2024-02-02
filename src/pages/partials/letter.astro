@@ -12,11 +12,10 @@ const schema = v.object({
 	content: v.string([v.maxLength(2005)]),
 	color: v.string([v.hexColor()]),
 });
-const validateRes = validateFormData(formData, schema);
-if (!validateRes.ok) {
-	return validateRes.response;
+const { error, data } = validateFormData(formData, schema);
+if (error) {
+	return error;
 }
-const { data } = validateRes;
 
 await db.insert(letterTable).values(data);
 ---
