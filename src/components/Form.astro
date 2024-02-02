@@ -1,0 +1,27 @@
+---
+
+---
+
+<form class="space-y-2" x-data="{ color: '#d3d4d7' }">
+	<label class="flex w-fit flex-row gap-2">
+		<div class="label">
+			<span class="label-text">Choose a color</span>
+		</div>
+		<input
+			type="color"
+			name="color"
+			class="input input-bordered input-sm"
+			value="#d3d4d7"
+			x-model="color"
+		/>
+	</label>
+	<textarea
+		name="content"
+		class="textarea textarea-bordered h-48 w-full resize-none"
+		placeholder="LOVE LETTER HERE..."
+		required></textarea>
+	<div class="flex items-center justify-between">
+		<button type="reset" class="btn btn-secondary">Reset</button>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</div>
+</form>

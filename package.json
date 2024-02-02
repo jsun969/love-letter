@@ -16,6 +16,7 @@
 		"@astrojs/alpinejs": "^0.4.0",
 		"@astrojs/check": "^0.4.1",
 		"@astrojs/tailwind": "^5.1.0",
+		"@fontsource-variable/quicksand": "^5.0.16",
 		"@types/alpinejs": "^3.13.6",
 		"@typescript-eslint/eslint-plugin": "^6.20.0",
 		"@typescript-eslint/parser": "^6.20.0",
