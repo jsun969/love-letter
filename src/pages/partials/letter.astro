@@ -1,15 +1,23 @@
 ---
+import * as v from 'valibot';
 import LetterCard from '../../components/LetterCard.astro';
 import { db } from '../../db';
 import { letterTable } from '../../db/schema';
+import { validateFormData } from '../../helpers/validate-form-data';
 
 export const partial = true;
 
 const formData = await Astro.request.formData();
-const data = {
-	content: String(formData.get('content')) ?? '',
-	color: String(formData.get('color')) ?? '#000',
-};
+const schema = v.object({
+	content: v.string([v.maxLength(2005)]),
+	color: v.string([v.hexColor()]),
+});
+const validateRes = validateFormData(formData, schema);
+if (!validateRes.ok) {
+	return validateRes.response;
+}
+const { data } = validateRes;
+
 await db.insert(letterTable).values(data);
 ---
 
