@@ -2,14 +2,22 @@
 
 ---
 
-<form class="space-y-2" x-data="{ color: '#d3d4d7' }">
+<form
+	class="space-y-2"
+	x-data="{ color: '#d3d4d7' }"
+	hx-post="/partials/letter"
+	hx-swap="afterend"
+	x-ref="form"
+	x-on:submit.prevent="$nextTick(() => $refs.form.reset())"
+	hx-disabled-elt="#submit-btn"
+>
 	<label class="flex w-fit flex-row gap-2">
 		<div class="label">
 			<span class="label-text">Choose a color</span>
 		</div>
 		<input
-			type="color"
 			name="color"
+			type="color"
 			class="input input-bordered input-sm"
 			value="#d3d4d7"
 			x-model="color"
@@ -19,9 +27,13 @@
 		name="content"
 		class="textarea textarea-bordered h-48 w-full resize-none"
 		placeholder="LOVE LETTER HERE..."
+		x-bind:style="`border-color: ${color};`"
 		required></textarea>
 	<div class="flex items-center justify-between">
 		<button type="reset" class="btn btn-secondary">Reset</button>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="group btn btn-primary" id="submit-btn">
+			<span class="loading loading-spinner hidden group-disabled:inline"></span>
+			Submit
+		</button>
 	</div>
 </form>

@@ -1,0 +1,16 @@
+---
+import LetterCard from '../../components/LetterCard.astro';
+import { db } from '../../db';
+import { letterTable } from '../../db/schema';
+
+export const partial = true;
+
+const formData = await Astro.request.formData();
+const data = {
+	content: String(formData.get('content')) ?? '',
+	color: String(formData.get('color')) ?? '#000',
+};
+await db.insert(letterTable).values(data);
+---
+
+<LetterCard {...data} />

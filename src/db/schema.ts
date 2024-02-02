@@ -2,7 +2,7 @@ import { sql } from 'drizzle-orm';
 import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
 import { nanoid } from 'nanoid';
 
-export const letters = sqliteTable('letters', {
+export const letterTable = sqliteTable('letters', {
 	id: text('id')
 		.$defaultFn(() => nanoid())
 		.primaryKey(),
