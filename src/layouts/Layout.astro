@@ -1,5 +1,6 @@
 ---
 import '@fontsource-variable/quicksand';
+import Header from '../components/Header.astro';
 
 interface Props {
 	title?: string;
@@ -21,6 +22,7 @@ const title = propTitle ? `${propTitle} | ${SITE_TITLE}` : SITE_TITLE;
 		<title>{title}</title>
 	</head>
 	<body class="mx-auto max-w-3xl p-2 font-serif">
+		<Header />
 		<slot />
 	</body>
 </html>
