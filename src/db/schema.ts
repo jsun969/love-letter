@@ -8,5 +8,7 @@ export const letterTable = sqliteTable('letters', {
 		.primaryKey(),
 	content: text('content').notNull(),
 	color: text('color').notNull(),
-	createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
+	createdAt: text('created_at')
+		.default(sql`CURRENT_TIMESTAMP`)
+		.notNull(),
 });

@@ -1,14 +1,17 @@
 ---
-interface Props {
+import type { letterTable } from '../db/schema';
+
+type Props = {
 	color: string;
-	content: string;
-}
-const { color, content } = Astro.props;
+} & typeof letterTable.$inferSelect;
+const { color, content, createdAt } = Astro.props;
 ---
 
-<div
-	class="whitespace-pre-line rounded-lg border-2 px-4 py-2"
-	style={`border-color: ${color};`}
->
-	{content}
+<div class="rounded-lg border-2 px-4 py-2" style={`border-color: ${color};`}>
+	<div class="whitespace-pre-line text-lg font-semibold mobile:text-base">
+		{content}
+	</div>
+	<div class="flex justify-between text-sm mobile:text-xs">
+		<div>{new Date(createdAt).toLocaleString()}</div>
+	</div>
 </div>

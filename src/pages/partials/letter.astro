@@ -17,7 +17,7 @@ if (error) {
 	return error;
 }
 
-await db.insert(letterTable).values(data);
+const [letter] = await db.insert(letterTable).values(data).returning();
 ---
 
-<LetterCard {...data} />
+<LetterCard {...letter} />

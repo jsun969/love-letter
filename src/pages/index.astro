@@ -20,10 +20,6 @@ const letters = await db
 			Love Letter
 		</h1>
 		<Form />
-		{
-			letters.map((letter) => (
-				<LetterCard content={letter.content} color={letter.color} />
-			))
-		}
+		{letters.map((letter) => <LetterCard {...letter} />)}
 	</main>
 </Layout>
