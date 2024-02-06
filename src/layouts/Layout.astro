@@ -21,8 +21,10 @@ const title = propTitle ? `${propTitle} | ${SITE_TITLE}` : SITE_TITLE;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="mx-auto max-w-3xl p-2 font-serif">
-		<Header />
-		<slot />
+	<body class="bg-[url('/noise.png')] font-serif">
+		<div class="mx-auto max-w-3xl p-2">
+			<Header />
+			<slot />
+		</div>
 	</body>
 </html>
